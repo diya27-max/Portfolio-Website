@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diya Chakravarti – CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f0f0;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* ── Download button (shown only on screen) ── */
+        .download-bar {
+            width: 100%;
+            max-width: 720px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 16px;
+        }
+
+        .download-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+        }
+
+        .download-bar a:hover { background: #333; }
+
+        /* ── CV card ── */
+        .cv {
+            width: 100%;
+            max-width: 720px;
+            background: #fff;
+            padding: 52px 52px 60px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+        }
+
+        /* Header */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .cv-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .cv-header .subtitle {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        /* Contact row */
+        .cv-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 0.82rem;
+            color: #333;
+            margin: 18px 0 20px;
+        }
+
+        .cv-contact span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cv-contact svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Divider */
+        hr.divider {
+            border: none;
+            border-top: 1.5px solid #222;
+            margin: 18px 0;
+        }
+
+        hr.divider-light {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 18px 0;
+        }
+
+        /* Section heading */
+        .section-title {
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #111;
+            margin-bottom: 10px;
+        }
+
+        /* Generic block */
+        .cv-section {
+            margin-bottom: 4px;
+        }
+
+        /* About */
+        .about-text {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: #444;
+        }
+
+        /* Education entries */
+        .edu-entry {
+            margin-bottom: 14px;
+        }
+
+        .edu-meta {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        .edu-degree {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .edu-location {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 1px;
+        }
+
+        /* Two-column grid for skills + language */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 40px;
+        }
+
+        .skills-list, .lang-list {
+            list-style: disc;
+            padding-left: 18px;
+            font-size: 0.85rem;
+            color: #333;
+            line-height: 1.9;
+        }
+
+        /* Skills grid inside the left column */
+        .skills-grid {
+            columns: 2;
+            column-gap: 20px;
+        }
+
+        /* Work experience */
+        .work-meta {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 2px;
+        }
+
+        .work-role {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 3px;
+        }
+
+        .work-desc {
+            font-size: 0.83rem;
+            color: #444;
+            line-height: 1.55;
+        }
+
+        /* Certificates */
+        .cert-list {
+            list-style: disc;
+            padding-left: 18px;
+            font-size: 0.85rem;
+            color: #333;
+            line-height: 2;
+        }
+
+        /* Footer bar */
+        .cv-footer-bar {
+            background: #333;
+            height: 14px;
+            margin-top: 52px;
+        }
+
+        /* ── Print styles ── */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .download-bar { display: none; }
+            .cv {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 40px 50px 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Download button (screen-only) -->
+    <div class="download-bar">
+        <a href="#" onclick="window.print(); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download / Print
+        </a>
+    </div>
+
+    <!-- CV card -->
+    <div class="cv">
+
+        <!-- Header -->
+        <div class="cv-header">
+            <h1>Diya Chakravarti</h1>
+            <p class="subtitle">Web Developer</p>
+        </div>
+
+        <!-- Contact info -->
+        <div class="cv-contact">
+            <span>
+                <!-- Phone icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                91+ 9730327467
+            </span>
+            <span>
+                <!-- Mail icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                diyachakravarti3@gmail.com
+            </span>
+            <span>
+                <!-- Location icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Nashik, Maharashtra, India
+            </span>
+        </div>
+
+        <hr class="divider">
+
+        <!-- About Me -->
+        <div class="cv-section">
+            <p class="section-title">About Me</p>
+            <p class="about-text">
+                Performance-driven Web Developer with 1 year of experience delivering high-quality, scalable digital solutions.
+                Proven ability to collaborate with cross-functional teams to translate business requirements into seamless,
+                user-centric web applications.
+            </p>
+        </div>
+
+        <hr class="divider-light">
+
+        <!-- Education -->
+        <div class="cv-section">
+            <p class="section-title">Education</p>
+
+            <div class="edu-entry">
+                <p class="edu-meta">Sandip University &nbsp;|&nbsp; APPEARED</p>
+                <p class="edu-degree">B.Tech Computer Science Engineering</p>
+                <p class="edu-location">Nashik, Maharashtra, India</p>
+            </div>
+
+            <div class="edu-entry">
+                <p class="edu-meta">Aspire Institute [Online] &nbsp;|&nbsp; May 2025 – Sep 2025</p>
+                <p class="edu-degree">Leadership and Professional Development</p>
+                <p class="edu-location">Cambridge, Massachusetts</p>
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <!-- Skills + Language -->
+        <div class="two-col cv-section">
+            <div>
+                <p class="section-title">Skills</p>
+                <ul class="skills-list skills-grid">
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                    <li>HTML</li>
+                    <li>C++</li>
+                </ul>
+            </div>
+            <div>
+                <p class="section-title">Language</p>
+                <ul class="lang-list">
+                    <li>English</li>
+                    <li>Hindi</li>
+                    <li>Marathi</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <!-- Work Experience -->
+        <div class="cv-section">
+            <p class="section-title">Work Experience</p>
+            <p class="work-meta">SmartED Innovations &nbsp;|&nbsp; Sep 2024 – Nov 2024</p>
+            <p class="work-role">Web Developer</p>
+            <p class="work-desc">Developed and maintained responsive web pages at SmartED Innovations.</p>
+        </div>
+
+        <hr class="divider-light">
+
+        <!-- Certificate -->
+        <div class="cv-section">
+            <p class="section-title">Certificate</p>
+            <ul class="cert-list">
+                <li>Walmart USA – Advanced Software Engineering Job Simulation</li>
+                <li>Lloyds Banking Group – UX Design Advanced Job Simulation</li>
+                <li>5-Day AI Agents Intensive Course with Google</li>
+            </ul>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="cv-footer-bar"></div>
+
+    </div>
+
+</body>
+</html>
